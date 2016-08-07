@@ -17,6 +17,31 @@ class TableStore extends EventEmitter{
     ];
   }
 
+  // action handling
+  handleAction(action){
+    switch(action.type){
+      case "ADD_ROW":
+        this.addRow();
+        break;
+      case "ADD_COLUMN":
+        this.addColumn();
+        break;
+      case "REMOVE_ROW":
+        this.removeRow();
+        break;
+      case "REMOVE_COLUMN":
+        this.removeColumn();
+        break;
+      case "EDIT_CELL":
+        this.editCell(action.row, action.col, action.val);
+        break;
+      case "EDIT_NAME":
+        this.editName(action.val);
+        break;
+      default:
+    }
+  }
+
   // data retrieval
 
   getRowCount(){
@@ -87,32 +112,6 @@ class TableStore extends EventEmitter{
   editName(name){
     this.name = name;
     console.log("editName called in store: " + name);
-  }
-
-  // action handling
-
-  handleAction(action){
-    switch(action.type){
-      case "ADD_ROW":
-        this.addRow();
-        break;
-      case "ADD_COLUMN":
-        this.addColumn();
-        break;
-      case "REMOVE_ROW":
-        this.removeRow();
-        break;
-      case "REMOVE_COLUMN":
-        this.removeColumn();
-        break;
-      case "EDIT_CELL":
-        this.editCell(action.row, action.col, action.val);
-        break;
-      case "EDIT_NAME":
-        this.editName(action.val);
-        break;
-      default:
-    }
   }
 }
 

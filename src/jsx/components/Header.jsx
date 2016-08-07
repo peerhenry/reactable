@@ -1,20 +1,19 @@
 import React from "react";
+import PageStore from "../../js/stores/PageStore.js"
 
 export default class Header extends React.Component{
 
   constructor(){
     super();
     this.state = {
-      hidden: false
+      hidden: !PageStore.headerIsVisible()
     };
   }
 
-  handleClick(event){
-    console.log("header clicked!");
-    const oldHidden = this.state.hidden;
-    this.setState({
-      hidden: !oldHidden
-    });
+  componentWillMount(){
+    PageStore.on("change", () => this.setState({
+      hidden: !PageStore.headerIsVisible()
+    }));
   }
 
   render(){
@@ -23,7 +22,7 @@ export default class Header extends React.Component{
     return(
       <div class="jumbotron" style={styleObj}>
         <div class="container">
-          <h1 onClick={this.handleClick.bind(this)}>ReacTable</h1>
+          <h1>ReacTable</h1>
           <p>By PeerHenry</p>
         </div>
       </div>

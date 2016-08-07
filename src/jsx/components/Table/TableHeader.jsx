@@ -1,5 +1,5 @@
 import React from "react";
-import TableStore from "../../stores/TableStore.js";
+import TableStore from "../../../js/stores/TableStore.js";
 import Cell from "./Cell.jsx";
 
 export default class TableHeader extends React.Component{

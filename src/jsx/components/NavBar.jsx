@@ -1,6 +1,16 @@
 import React from "react";
+import * as PageDisplayActions from "../../js/actions/PageDisplayActions.js";
 
 export default class NavBar extends React.Component{
+
+  constructor(){
+    super();
+  }
+
+  toggleHeader(){
+    PageDisplayActions.toggleHeader();
+  }
+
   render(){
   return(
     <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -11,7 +21,7 @@ export default class NavBar extends React.Component{
               Options <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li>
+              <li onClick={this.toggleHeader.bind(this)}>
                 <a href="#">Show header</a>
               </li>
               <li>

@@ -1,0 +1,7 @@
+
+
+running webpack and devserver seperately works
+reloads 8080 on js changes, not pug or html change
+
+
+using gulp to run webpack and devserver has not yet been fruitful...

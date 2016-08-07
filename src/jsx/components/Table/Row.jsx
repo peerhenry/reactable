@@ -1,5 +1,4 @@
 import React from "react";
-
 import Cell from "./Cell.jsx";
 
 export default class Row extends React.Component{

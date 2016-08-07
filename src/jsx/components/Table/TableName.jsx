@@ -1,6 +1,6 @@
 import React from "react";
-import { noInputBorder } from "../../stores/StyleStore.js";
-import * as TableContentActions from "../../actions/TableContentActions.js";
+import { noInputBorder } from "../../../js/stores/StyleStore.js";
+import * as TableContentActions from "../../../js/actions/TableContentActions.js";
 
 export default class TableName extends React.Component{
 
@@ -16,8 +16,8 @@ export default class TableName extends React.Component{
   }
 
   render(){
-  return(
+    return(
       <input style={noInputBorder} defaultValue={this.text} class="h2" type="text" onChange={this.handleChange.bind(this)}/>
-   )
+    )
   }
 }

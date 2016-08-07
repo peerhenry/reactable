@@ -1,5 +1,5 @@
 import React from "react";
-import TableStore from "../../stores/TableStore.js"
+import TableStore from "../../../js/stores/TableStore.js"
 import Row from "./Row.jsx";
 import ButtonRow from "./ButtonRow.jsx";
 

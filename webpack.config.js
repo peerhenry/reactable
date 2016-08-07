@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/client.jsx",
+  entry: "./jsx/client.jsx",
   module: {
     loaders: [
       {
@@ -27,5 +27,14 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ]
+  ],
+  devServer: {
+    contentBase: "./build/",
+    inline: true,
+    hot: true,
+    stats: {
+      colors: true
+    }
+  },
+  watch: true
 };

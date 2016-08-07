@@ -1,7 +1,7 @@
 import React from "react";
-import TableStore from "../../stores/TableStore.js";
-import { noInputBorder } from "../../stores/StyleStore.js";
-import * as TableContentActions from "../../actions/TableContentActions.js";
+import TableStore from "../../../js/stores/TableStore.js";
+import { noInputBorder } from "../../../js/stores/StyleStore.js";
+import * as TableContentActions from "../../../js/actions/TableContentActions.js";
 
 export default class Cell extends React.Component{
 
@@ -28,7 +28,6 @@ export default class Cell extends React.Component{
 
   render(){
     const { value } = this.state;
-
     return(
       <input style={noInputBorder} onChange={this.handleChange.bind(this)} type="text" class="form-control" value={value}/>
     );
