@@ -8,7 +8,6 @@ export default class Table extends React.Component{
     return(
       <table class="table">
         <TableHeader/>
-        <TableHeader/>
         <TableBody/>
       </table>
     )
