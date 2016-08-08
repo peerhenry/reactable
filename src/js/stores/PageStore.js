@@ -11,25 +11,27 @@ class PageStore extends EventEmitter{
   }
 
   handleAction(action){
-    console.log('PageStore.handleAction() called: ' + action.type);
+    // console.log('PageStore.handleAction() called: ' + action.type);
     switch(action.type){
       case "TOGGLE_HEADER":
-        console.log('case TOGGLE_HEADER reached!');
+        // console.log('case TOGGLE_HEADER reached!');
         this.toggleHeader();
         break;
       case "TOGGLE_TITLE":
+        this.toggleTitle();
         break;
       default:
     }
   }
 
   toggleHeader(){
-    console.log('PageStore.toggleHeader() called');
+    // console.log('PageStore.toggleHeader() called'); // DEBUG
     this.showHeader = !this.showHeader;
     this.emit("change");
   }
 
   toggleTitle(){
+    console.log('PageStore.toggleTitle() called'); // DEBUG
     this.showTitle = !this.showTitle;
     this.emit("change");
   }

@@ -1,18 +1,44 @@
 import React from "react";
 import * as PageDisplayActions from "../../js/actions/PageDisplayActions.js";
+import PageStore from "../../js/stores/PageStore";
 
 export default class NavBar extends React.Component{
 
   constructor(){
     super();
+    this.state = {
+      showHeaderChecked: PageStore.headerIsVisible(),
+      showTitleChecked: PageStore.titleIsVisible()
+    }
+    this.dropdownIsOpen = false;
+  }
+
+  componentWillMount(){
+    PageStore.on("change", () => {
+      this.setState({
+        showHeaderChecked: PageStore.headerIsVisible(),
+        showTitleChecked: PageStore.titleIsVisible()
+      });
+    });
   }
 
   toggleHeader(){
     PageDisplayActions.toggleHeader();
   }
 
+  toggleTitle(){
+    PageDisplayActions.toggleTitle();
+  }
+
   render(){
+  const checkedClass = "fa fa-check-square";
+  const uncheckedClass = "fa fa-square";
+
+  var showHeaderClass = this.state.showHeaderChecked ? checkedClass: uncheckedClass;
+  var showTitleClass = this.state.showTitleChecked ? checkedClass: uncheckedClass;
+  //
   return(
+
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="container">
         <ul class="nav navbar-nav">
@@ -22,10 +48,14 @@ export default class NavBar extends React.Component{
             </a>
             <ul class="dropdown-menu">
               <li onClick={this.toggleHeader.bind(this)}>
-                <a href="#">Show header</a>
+                <a href="#" role="button">
+                  <i class={showHeaderClass}></i> Show header
+                </a>
               </li>
-              <li>
-                <a href="#">Show title</a>
+              <li onClick={this.toggleTitle.bind(this)}>
+                <a href="#" role="button">
+                  <i class={showTitleClass}></i> Show title
+                </a>
               </li>
             </ul>
           </li>
