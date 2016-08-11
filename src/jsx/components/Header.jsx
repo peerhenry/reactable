@@ -23,7 +23,6 @@ export default class Header extends React.Component{
       <div class="jumbotron" style={styleObj}>
         <div class="container">
           <h1>ReacTable</h1>
-          <p>By PeerHenry</p>
         </div>
       </div>
     );

@@ -62,11 +62,13 @@ export default class NavBar extends React.Component{
           <li><a href="">button2</a></li>
         </ul>
         <form class="navbar-form navbar-right">
-          <div className="form-group">
+          <div className="input-group">
             <input type="text" class="form-control" placeholder="search"/>
-            <button type="submit" class="btn btn-default">
-              <i class="fa fa-search fa-lg"></i>
-            </button>
+            <span className="input-group-btn">
+              <a role="button" href="#/Search/" type="submit" class="btn btn-default">
+                <i class="fa fa-search fa-lg"></i>
+              </a>
+            </span>
           </div>
         </form>
       </div>

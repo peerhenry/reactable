@@ -21,6 +21,10 @@ export default class Cell extends React.Component{
     };
   }
 
+  selectText(event){
+    event.target.select();
+  }
+
   handleChange(event){
     // this will fire an action to change the store
     TableContentActions.editCell(this.state.rowN, this.state.colN, event.target.value);
@@ -29,7 +33,13 @@ export default class Cell extends React.Component{
   render(){
     const { value } = this.state;
     return(
-      <input style={noInputBorder} onChange={this.handleChange.bind(this)} type="text" class="form-control" value={value}/>
+      <input
+        style={noInputBorder}
+        onChange={this.handleChange.bind(this)}
+        onFocus={this.selectText.bind(this)}
+        type="text"
+        class="form-control"
+        value={value}/>
     );
   }
 }

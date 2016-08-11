@@ -1,3 +1,28 @@
 body{
     padding-top: 51px;
 }
+
+.clickable-row:hover{
+    background: #eee;
+}
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	margin: 0 auto -155px;
+}
+footer, .push {
+	height: 155px;
+}
+footer{
+    z-index: -1;
+    opacity: .99;
+}
+.table{
+    background: white;
+}

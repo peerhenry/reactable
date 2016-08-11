@@ -1,15 +1,17 @@
 import React from "react";
-
-import TableName from "./Table/TableName.jsx";
-import Table from "./Table/Table.jsx";
+import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import TablePage from "./Table/TablePage.jsx"
+import SearchPage from "./Search/SearchPage.jsx"
 
 export default class Body extends React.Component{
   render(){
     return(
-      <div class="container">
-        <TableName/>
-        <Table/>
-      </div>
+      <Router history = {hashHistory}>
+        <Route path="/" component={TablePage}>
+        </Route>
+        <Route path="/Search" component={SearchPage}>
+        </Route>
+      </Router>
     )
   }
 }

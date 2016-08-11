@@ -28,6 +28,10 @@ export default class TableName extends React.Component{
     });
   }
 
+  selectText(event){
+    event.target.select();
+  }
+
   handleChange(event){
     TableContentActions.editTableName(event.target.value);
   }
@@ -36,7 +40,14 @@ export default class TableName extends React.Component{
     var inlineStyle = (this.state.isVisble) ? noInputBorder : hidden;  
     
     return(
-      <input style={inlineStyle} defaultValue={this.state.text} class="h2" type="text" onChange={this.handleChange.bind(this)}/>
+      <input 
+        style={inlineStyle} 
+        defaultValue={this.state.text} 
+        class="h2" 
+        type="text" 
+        onChange={this.handleChange.bind(this)}
+        onFocus={this.selectText.bind(this)}
+      />
     )
   }
 }
