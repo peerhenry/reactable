@@ -9,7 +9,8 @@ class TableRetriever{
         var tableModel = {
           name: response["name"],
           header: response["header"],
-          matrix: response["matrix"]
+          matrix: response["matrix"],
+          uid: response["uid"]
         };
         callback(tableModel);
       } else{

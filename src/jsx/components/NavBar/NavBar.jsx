@@ -1,5 +1,6 @@
 import React from "react";
 import Options from "./Options.jsx";
+import SearchForm from "./SearchForm.jsx";
 
 export default class NavBar extends React.Component{
 
@@ -15,16 +16,7 @@ export default class NavBar extends React.Component{
             <Options/>
             <li><a href="">button2</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <div className="input-group">
-              <input type="text" class="form-control" placeholder="search"/>
-              <span className="input-group-btn">
-                <a role="button" href="#/Search/" type="submit" class="btn btn-default">
-                  <i class="fa fa-search fa-lg"></i>
-                </a>
-              </span>
-            </div>
-          </form>
+          <SearchForm/>
         </div>
       </nav>
     )

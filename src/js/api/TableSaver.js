@@ -1,8 +1,24 @@
 class TableSaver{
 
-  saveTable(tableModel){
+  saveTable(tableModel, callback){
     // ajax post table.
-    console.log("saveTable in TableSaver called.")
+    $.ajax({
+      url: "http://localhost:3000/saveTable",
+      type: "POST",
+      date: tableModel,
+      success: function(resultData){
+        var response = JSON.parse(request.responseText);
+        var tableModel = {
+          name: response["name"],
+          header: response["header"],
+          matrix: response["matrix"]
+        };
+        callback(tableModel);
+      },
+      error: function(){
+        console.log('Error with saveTable post in TableSaver');
+      }
+    });
   }
 
 }

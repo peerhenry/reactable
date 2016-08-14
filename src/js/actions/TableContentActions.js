@@ -15,3 +15,10 @@ export function editTableName(text){
     val: text
   });
 }
+
+export function setTable(tableModel){
+  dispatcher.dispatch({
+    type: "SET_TABLE",
+    val: tableModel
+  })
+}
