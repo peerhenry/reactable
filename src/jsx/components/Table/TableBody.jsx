@@ -30,7 +30,6 @@ export default class TableBody extends React.Component{
     return(
       <tbody>
         {Rows}
-        <ButtonRow/>
       </tbody>
     )
   }

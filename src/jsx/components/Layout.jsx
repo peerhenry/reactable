@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./NavBar.jsx"
+import NavBar from "./NavBar/NavBar.jsx"
 import Header from "./Header.jsx"
 import Body from "./Body.jsx"
 import Footer from "./Footer.jsx"

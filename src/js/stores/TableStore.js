@@ -1,20 +1,29 @@
 import { EventEmitter } from "events";
 
 import dispatcher from "../dispatcher.js"
+import tableRetriever from "../api/tableretriever.js";
 
 class TableStore extends EventEmitter{
 
   constructor(){
     super();
+    console.log("TableStore constructor called");
     this.setMaxListeners(Infinity);
-    this.name = "my table";
-    this.header = ["col 1", "col 2", "col 3"]
-    this.matrix = [
-      ["cell", "cell", "cell"],
-      ["cell", "cell", "cell"],
-      ["cell", "cell", "cell"],
-      ["cell", "cell", "cell"]
-    ];
+    this.tableModel = {
+      name: "",
+      header: [],
+      matrix: []
+    }
+    tableRetriever.getTableModel(0, model => {
+      this.setTableModel(model);
+    });
+  }
+
+  setTableModel(model){
+    //console.log("setting table model...");
+    this.tableModel = model;
+    this.emit("change");
+    //console.log("the new table name is: " + this.tableModel.name);
   }
 
   // action handling
@@ -45,39 +54,39 @@ class TableStore extends EventEmitter{
   // data retrieval
 
   getRowCount(){
-    return this.matrix.length;
+    return this.tableModel.matrix.length;
   }
 
   getColumnCount(){
-    return this.header.length;
+    return this.tableModel.header.length;
   }
 
   getHeader(){
-    return this.header;
+    return this.tableModel.header;
   }
 
   getMatrix(){
-    return this.matrix;
+    return this.tableModel.matrix;
   }
 
   getValue(row, col){
     if(row<0){
       console.log('row is < 0');
-      return this.header[col];
+      return this.tableModel.header[col];
     }
-    else return this.matrix[row][col];
+    else return this.tableModel.matrix[row][col];
   }
 
   getName(){
-    return this.name;
+    return this.tableModel.name;
   }
 
   // data manipulation
 
   addColumn(){
     var cc = this.getColumnCount() + 1;
-    this.header.push("col " + cc);
-    this.matrix.map(row => {
+    this.tableModel.header.push("col " + cc);
+    this.tableModel.matrix.map(row => {
       row.push("cell");
     });
     this.emit("change");
@@ -85,37 +94,39 @@ class TableStore extends EventEmitter{
 
   addRow(){
     var newRow = [];
-    this.header.map(cell => {
+    this.tableModel.header.map(cell => {
       newRow.push("cell");
     });
-    this.matrix.push(newRow);
+    this.tableModel.matrix.push(newRow);
     this.emit("change");
   }
 
   removeColumn(){
-    this.header.pop();
-    this.matrix.map(row => row.pop());
+    this.tableModel.header.pop();
+    this.tableModel.matrix.map(row => row.pop());
     this.emit("change");
   }
 
   removeRow(){
-    this.matrix.pop();
+    this.tableModel.matrix.pop();
     this.emit("change");
   }
 
   editCell(row, col, val){
-    if(row<0) this.header[col] = val;
-    else this.matrix[row][col] = val;
+    if(row<0) this.tableModel.header[col] = val;
+    else this.tableModel.matrix[row][col] = val;
     this.emit("change");
   }
 
   editName(name){
-    this.name = name;
-    console.log("editName called in store: " + name);
+    this.tableModel.name = name;
+    this.emit("change");
+    //console.log("editName called in store: " + name); // DEBUG
   }
 }
 
+console.log('about to create a new tablestore...');
 const tableStore = new TableStore;
 dispatcher.register(tableStore.handleAction.bind(tableStore));
-window.dispatcher = dispatcher;
+//window.dispatcher = dispatcher;
 export default tableStore;

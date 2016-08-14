@@ -17,6 +17,7 @@ export default class TableName extends React.Component{
 
   componentWillMount(){
     TableStore.on("change", () => {
+      //console.log("table store change heard, and the name is: " + TableStore.getName()); // DEBUG
       this.setState({
         text: TableStore.getName()
       });
@@ -38,11 +39,11 @@ export default class TableName extends React.Component{
 
   render(){
     var inlineStyle = (this.state.isVisble) ? noInputBorder : hidden;  
-    
+    const { text } = this.state;
     return(
       <input 
         style={inlineStyle} 
-        defaultValue={this.state.text} 
+        value={text} 
         class="h2" 
         type="text" 
         onChange={this.handleChange.bind(this)}

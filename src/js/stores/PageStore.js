@@ -8,31 +8,36 @@ class PageStore extends EventEmitter{
     super();
     this.showHeader = true;
     this.showTitle = true;
+    this.showTableHeader = true;
   }
 
   handleAction(action){
-    // console.log('PageStore.handleAction() called: ' + action.type);
     switch(action.type){
       case "TOGGLE_HEADER":
-        // console.log('case TOGGLE_HEADER reached!');
         this.toggleHeader();
         break;
       case "TOGGLE_TITLE":
         this.toggleTitle();
+        break;
+      case "TOGGLE_TABLE_HEADER":
+        this.toggleTableHeader();
         break;
       default:
     }
   }
 
   toggleHeader(){
-    // console.log('PageStore.toggleHeader() called'); // DEBUG
     this.showHeader = !this.showHeader;
     this.emit("change");
   }
 
   toggleTitle(){
-    console.log('PageStore.toggleTitle() called'); // DEBUG
     this.showTitle = !this.showTitle;
+    this.emit("change");
+  }
+
+  toggleTableHeader(){
+    this.showTableHeader = !this.showTableHeader;
     this.emit("change");
   }
 
@@ -44,9 +49,11 @@ class PageStore extends EventEmitter{
     return this.showTitle;
   }
 
+  tableHeaderIsVisible(){
+    return this.showTableHeader;
+  }
 }
 
 const pageStore = new PageStore;
 dispatcher.register(pageStore.handleAction.bind(pageStore));
-window.dispatcher = dispatcher;
 export default pageStore;

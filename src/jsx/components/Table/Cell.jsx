@@ -1,6 +1,6 @@
 import React from "react";
 import TableStore from "../../../js/stores/TableStore.js";
-import { noInputBorder } from "../../../js/stores/StyleStore.js";
+import {noInputBorder} from "../../../js/stores/StyleStore.js";
 import * as TableContentActions from "../../../js/actions/TableContentActions.js";
 
 export default class Cell extends React.Component{
@@ -26,7 +26,6 @@ export default class Cell extends React.Component{
   }
 
   handleChange(event){
-    // this will fire an action to change the store
     TableContentActions.editCell(this.state.rowN, this.state.colN, event.target.value);
   }
 
