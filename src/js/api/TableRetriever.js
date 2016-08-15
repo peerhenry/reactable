@@ -2,6 +2,7 @@ class TableRetriever{
   
   getTableModel(uid, callback){
     var request = new XMLHttpRequest();
+    console.log('Starting XMLHttpRequest in TableRetriever');
     request.open('GET', 'http://localhost:3000/defaultTable', true);
     request.onload = () => {
       if(request.status >= 200 && request.status < 400){
@@ -12,6 +13,7 @@ class TableRetriever{
           matrix: response["matrix"],
           uid: response["uid"]
         };
+        console.log('Now performing callback in TableRetriever');
         callback(tableModel);
       } else{
         console.log('We reached the target server, but it returned an error: ' + request.status);

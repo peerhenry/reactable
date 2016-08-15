@@ -22,3 +22,11 @@ export function setTable(tableModel){
     val: tableModel
   })
 }
+
+export function loadTable(uid){
+  console.log('loadTable called in TableContentActions with uid: ' + uid);
+  dispatcher.dispatch({
+    type: "LOAD_TABLE",
+    val: uid
+  });
+}

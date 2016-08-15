@@ -8,8 +8,9 @@ export default class SearchEntry extends React.Component{
     super();
   }
 
-  handleClick(){
-    SearchActions.open(this.props.uid);
+  handleClick(e){
+    console.log('handling search entry click...');
+    window.location = '#/?uid='+this.props.uid;
   }
 
   render(){
@@ -18,8 +19,7 @@ export default class SearchEntry extends React.Component{
     };
     return(
       <tr 
-        class="clickable-row" 
-        data-href="www.google.com"
+        class="clickable-row"
         style={clickableStyle}
         onClick={this.handleClick.bind(this)}
       >

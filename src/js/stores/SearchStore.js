@@ -14,14 +14,14 @@ class SearchStore extends EventEmitter{
         rating: 4.75
       },
       {
-        uid: 0,
+        uid: 2,
         name: "Muppets2",
         creator: "Jim Henson",
         lastModified: "02-01-2016",
         rating: 6
       },
       {
-        uid: 0,
+        uid: 3,
         name: "Muppets3",
         creator: "Jim Henson",
         lastModified: "03-01-2016",

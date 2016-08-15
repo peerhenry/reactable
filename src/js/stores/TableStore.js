@@ -7,7 +7,6 @@ class TableStore extends EventEmitter{
 
   constructor(){
     super();
-    console.log("TableStore constructor called");
     this.setMaxListeners(Infinity);
     this.tableModel = {
       uid: "",
@@ -15,9 +14,7 @@ class TableStore extends EventEmitter{
       header: [],
       matrix: []
     }
-    tableRetriever.getTableModel(0, model => {
-      this.setTableModel(model);
-    });
+    this.loadTableModel('0');
   }
 
   // action handling
@@ -43,6 +40,9 @@ class TableStore extends EventEmitter{
         break;
       case "SET_TABLE":
         this.setTableModel(action.val);
+        break;
+      case "LOAD_TABLE":
+        this.loadTableModel(action.val);
         break;
       default:
     }
@@ -84,7 +84,15 @@ class TableStore extends EventEmitter{
 
   // data manipulation
 
+  loadTableModel(uid){
+    console.log('loading table model in TableStore: ' + uid);
+    tableRetriever.getTableModel(uid, model => {
+      this.setTableModel(model);
+    });
+  }
+
   setTableModel(model){
+    console.log('setTableModel in TableStore: ' + model.uid);
     this.tableModel = model;
     this.emit("change");
   }

@@ -26,6 +26,7 @@ export default class TablePage extends React.Component{
 
     return(
       <div class="container">
+        <h2>Search</h2>
         <table class="table">
           <thead>
             <tr>
