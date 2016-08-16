@@ -15,6 +15,13 @@ function getBabelLoader(){
   };
 }
 
+function getTypescriptLoader(){
+  return {
+    test: /\.tsx?$/,
+    loader: "ts-loader"
+  };
+}
+
 function getCssLoader(){
   return {
     test: /\.css$/,
@@ -29,8 +36,7 @@ function getPugLoader(){
   }
 }
 
-function getLoaders()
-{
+function getLoaders(){
   return [
     getBabelLoader(),
     getCssLoader(),
@@ -44,8 +50,7 @@ function getWebpackPlugin(){
   })
 }
 
-function getPlugins()
-{
+function getPlugins(){
   return debug ? [ getWebpackPlugin() ] : [
       getWebpackPlugin(),
       new webpack.optimize.DedupePlugin(),
