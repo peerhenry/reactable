@@ -32,13 +32,20 @@ export default class Cell extends React.Component{
   render(){
     const { value } = this.state;
     return(
-      <input
-        style={noInputBorder}
-        onChange={this.handleChange.bind(this)}
-        onFocus={this.selectText.bind(this)}
-        type="text"
-        class="form-control"
-        value={value}/>
+      <div class="input-group">
+        <input
+          style={noInputBorder}
+          onChange={this.handleChange.bind(this)}
+          onFocus={this.selectText.bind(this)}
+          type="text"
+          class="form-control"
+          value={value}/>
+        <span class="input-group-btn">
+          <button class="btn btn-default add-link">
+            <i class="fa fa-link" aria-hidden="true"></i>
+          </button>
+        </span>
+      </div>
     );
   }
 }

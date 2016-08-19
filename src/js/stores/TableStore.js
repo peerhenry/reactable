@@ -1,4 +1,5 @@
 import { EventEmitter } from "events";
+import Immutable from 'immutable';
 
 import dispatcher from "../dispatcher.js"
 import tableRetriever from "../api/tableretriever.js";

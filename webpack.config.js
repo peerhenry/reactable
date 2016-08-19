@@ -25,7 +25,8 @@ function getTypescriptLoader(){
 function getCssLoader(){
   return {
     test: /\.css$/,
-    loader: "style!css"
+    //loader: "style!css"
+    loader: "css"
   };
 }
 
@@ -39,7 +40,7 @@ function getPugLoader(){
 function getLoaders(){
   return [
     getBabelLoader(),
-    getCssLoader(),
+    //getCssLoader(),
     getPugLoader()
   ]
 }
