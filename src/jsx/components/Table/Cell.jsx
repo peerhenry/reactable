@@ -41,7 +41,7 @@ export default class Cell extends React.Component{
           class="form-control"
           value={value}/>
         <span class="input-group-btn">
-          <button class="btn btn-default add-link">
+          <button class="btn btn-default add-link" data-toggle="modal" data-target="#setLinkModal">
             <i class="fa fa-link" aria-hidden="true"></i>
           </button>
         </span>

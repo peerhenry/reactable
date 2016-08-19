@@ -3,6 +3,7 @@ import NavBar from "./NavBar/NavBar.jsx"
 import Header from "./Header.jsx"
 import Body from "./Body.jsx"
 import Footer from "./Footer.jsx"
+import SetLinkModal from "./Modal/SetLinkModal.jsx"
 
 export default class Layout extends React.Component{
   render(){
@@ -11,6 +12,7 @@ export default class Layout extends React.Component{
         <NavBar/>
         <Header/>
         <Body/>
+        <SetLinkModal/>
       </div>
     )
   }
