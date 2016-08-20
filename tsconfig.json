@@ -1,0 +1,16 @@
+{
+    "compilerOptions":{
+        "outDir": "./build/",
+        "target": "es6",
+        "jsx": "react"
+    },
+    "files":[
+        "./typings/index.d.ts",
+        "./src/jsx//components/Layout.tsx"
+    ],
+    "exclude":[
+        "node_modules",
+        "build",
+        "lib"
+    ]
+}

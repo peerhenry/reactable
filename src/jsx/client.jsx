@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-DOM";
-import Layout from "./components/Layout.jsx";
-import Footer from "./components/Footer.jsx";
+import Layout from "./components/Layout";
+import Footer from "./components/Footer";
 
 //require('../css/style.css');
 //require('../css/stickyfooter.css');

@@ -16,6 +16,16 @@ class TableStore extends EventEmitter{
       matrix: []
     }
     this.loadTableModel('0');
+
+    // mock it for dev, no connection to server
+    tableRetriever.getTableModel = function(uid, callback){
+      callback({
+        uid: "1",
+        name: "new table",
+        header: ["A","B","C"],
+        matrix: []
+      });
+    }
   }
 
   // action handling

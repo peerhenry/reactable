@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var pug = require('gulp-pug');
 var runSequence = require('gulp-run-sequence');
 var webpack = require('webpack');
 var WebpackDevDerver = require('webpack-dev-server');
@@ -16,20 +17,36 @@ function runCommand(command){
   }
 }
 
+// MAIN COMMANDS
+
+gulp.task('pug', function(){
+  return gulp.src('./src/**/*.pug')
+  .pipe(pug({
+    pretty: true
+  }))
+  .pipe(gulp.dest('./build/'));
+});
+
 gulp.task('webpack', function(callback){
   webpackConfig.watch = true;
   webpack(webpackConfig, function(err, stats) {
-        if(err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({
-            // output options
-        }));
-        callback();
-    });
+    if(err) throw new gutil.PluginError("webpack", err);
+    gutil.log("[webpack]", stats.toString({
+        // output options
+    }));
+    callback();
+  });
 });
 
 gulp.task('dev', runCommand("npm run dev"));
 
-gulp.task('browser', runCommand('tb http://localhost:8080'));
+gulp.task('browser', runCommand('"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome" http://localhost:8080'));
+
+// COMPOSITE COMMANDS
+
+gulp.task('run', function(){
+  runSequence('webpack', 'dev');
+});
 
 gulp.task('default', function(){
   runSequence('webpack', ['dev', 'browser']);

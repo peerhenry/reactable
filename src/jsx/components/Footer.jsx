@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonGroup from "./ButtonGroup.jsx";
-import SaveButton from "./SaveButton.jsx";
+import ButtonGroup from "./ButtonGroup";
+import SaveButton from "./SaveButton";
 
 export default class Footer extends React.Component{
   render(){

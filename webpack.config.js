@@ -16,9 +16,14 @@ function getBabelLoader(){
 }
 
 function getTypescriptLoader(){
+  var babelSettings = {
+      presets: ['react', 'es2015', 'stage-0'],
+      plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
+    };
   return {
     test: /\.tsx?$/,
-    loader: "ts-loader"
+    exclude: /(node_modules|bower_components|lib)/,
+    loader: "babel-loader?" + JSON.stringify(babelSettings) + "!ts-loader"
   };
 }
 
@@ -33,7 +38,10 @@ function getCssLoader(){
 function getPugLoader(){
   return {
     test: /\.pug$/,
-    loader: "pug-loader"
+    loader: "pug-loader",
+    query: {
+      pretty: debug
+    }
   }
 }
 
@@ -41,7 +49,8 @@ function getLoaders(){
   return [
     getBabelLoader(),
     //getCssLoader(),
-    getPugLoader()
+    getPugLoader(),
+    getTypescriptLoader()
   ]
 }
 
@@ -63,6 +72,9 @@ function getPlugins(){
 module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
+  resolve: {
+    extensions: ["", ".js", ".jsx", ".ts", ".tsx"]
+  },
   entry: {
     "client.min.js": "./jsx/client.jsx"
   },
@@ -82,5 +94,9 @@ module.exports = {
       colors: true
     }
   },
+  externals: {
+    "react": "React",
+    "react-DOM": "ReactDOM"
+  }
   //watch: true
 };
