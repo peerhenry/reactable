@@ -12,5 +12,5 @@ const footer = document.getElementById('footer');
 const setLinkModal = document.getElementById('setLinkModal');
 
 ReactDOM.render(<Layout/>, app);
-//ReactDOM.render(<Footer/>, footer);
+ReactDOM.render(<Footer/>, footer);
 ReactDOM.render(<SetLinkModal/>, setLinkModal);
