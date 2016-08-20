@@ -1,6 +1,17 @@
 class TableRetriever{
   
   getTableModel(uid, callback){
+
+    callback({
+        uid: "1",
+        name: "new table",
+        header: ["A","B","C"],
+        matrix: []
+      });
+    return;
+
+    // uncomment when connecting to server:
+    /*
     var request = new XMLHttpRequest();
     console.log('Starting XMLHttpRequest in TableRetriever');
     request.open('GET', 'http://localhost:3000/defaultTable', true);
@@ -22,7 +33,7 @@ class TableRetriever{
     request.onerror = function(){
       console.log('There was a connection error...');
     }
-    request.send();
+    request.send();*/
   }
 }
 

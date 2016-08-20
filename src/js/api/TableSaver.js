@@ -2,7 +2,8 @@ class TableSaver{
 
   saveTable(tableModel, callback){
     // ajax post table.
-    $.ajax({
+    // uncomment to enable:
+    /*$.ajax({
       url: "http://localhost:3000/saveTable",
       type: "POST",
       date: tableModel,
@@ -18,7 +19,7 @@ class TableSaver{
       error: function(){
         console.log('Error with saveTable post in TableSaver');
       }
-    });
+    });//*/
   }
 
 }

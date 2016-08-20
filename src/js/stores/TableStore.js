@@ -16,16 +16,6 @@ class TableStore extends EventEmitter{
       matrix: []
     }
     this.loadTableModel('0');
-
-    // mock it for dev, no connection to server
-    tableRetriever.getTableModel = function(uid, callback){
-      callback({
-        uid: "1",
-        name: "new table",
-        header: ["A","B","C"],
-        matrix: []
-      });
-    }
   }
 
   // action handling
@@ -83,7 +73,6 @@ class TableStore extends EventEmitter{
 
   getValue(row, col){
     if(row<0){
-      console.log('row is < 0');
       return this.tableModel.header[col];
     }
     else return this.tableModel.matrix[row][col];
@@ -96,14 +85,12 @@ class TableStore extends EventEmitter{
   // data manipulation
 
   loadTableModel(uid){
-    console.log('loading table model in TableStore: ' + uid);
     tableRetriever.getTableModel(uid, model => {
       this.setTableModel(model);
     });
   }
 
   setTableModel(model){
-    console.log('setTableModel in TableStore: ' + model.uid);
     this.tableModel = model;
     this.emit("change");
   }
@@ -146,7 +133,6 @@ class TableStore extends EventEmitter{
   editName(name){
     this.tableModel.name = name;
     this.emit("change");
-    //console.log("editName called in store: " + name); // DEBUG
   }
 }
 

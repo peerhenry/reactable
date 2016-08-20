@@ -17,7 +17,6 @@ export default class TableName extends React.Component{
 
   componentWillMount(){
     TableStore.on("change", () => {
-      //console.log("table store change heard, and the name is: " + TableStore.getName()); // DEBUG
       this.setState({
         text: TableStore.getName()
       });

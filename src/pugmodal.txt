@@ -1,0 +1,8 @@
+
+  div.modal.fade#setLinkModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+        div.modal-body
+          input.form-control
+        div.modal-footer

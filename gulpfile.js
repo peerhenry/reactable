@@ -27,7 +27,7 @@ gulp.task('pug', function(){
   .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('webpack', function(callback){
+/*gulp.task('webpack', function(callback){
   webpackConfig.watch = true;
   webpack(webpackConfig, function(err, stats) {
     if(err) throw new gutil.PluginError("webpack", err);
@@ -36,11 +36,15 @@ gulp.task('webpack', function(callback){
     }));
     callback();
   });
-});
+});*/
+
+gulp.task('webpack', runCommand("webpack"));
 
 gulp.task('dev', runCommand("npm run dev"));
 
 gulp.task('browser', runCommand('"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome" http://localhost:8080'));
+
+gulp.task('watch', gulp.watch('src/**/*', ['webpack']));
 
 // COMPOSITE COMMANDS
 
