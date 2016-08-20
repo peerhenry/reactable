@@ -11,3 +11,6 @@ html, body {
 footer, .push {
 	height: 155px;
 }
+.table{
+	margin: 0 auto 155px;
+}

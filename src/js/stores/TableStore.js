@@ -136,7 +136,7 @@ class TableStore extends EventEmitter{
   }
 }
 
-console.log('about to create a new tablestore...');
+console.log('about to create a new tablestore...'); // DEBUG
 const tableStore = new TableStore;
 dispatcher.register(tableStore.handleAction.bind(tableStore));
 //window.dispatcher = dispatcher;

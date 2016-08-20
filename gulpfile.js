@@ -44,14 +44,12 @@ gulp.task('dev', runCommand("npm run dev"));
 
 gulp.task('browser', runCommand('"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome" http://localhost:8080'));
 
-gulp.task('watch', gulp.watch('src/**/*', ['webpack']));
+gulp.task('watch', function(){
+  gulp.watch('src/**/*.*', ['webpack']);
+});
 
 // COMPOSITE COMMANDS
 
-gulp.task('run', function(){
-  runSequence('webpack', 'dev');
-});
-
 gulp.task('default', function(){
-  runSequence('webpack', ['dev', 'browser']);
+  runSequence('webpack', ['dev', 'watch']);
 });

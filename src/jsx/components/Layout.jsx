@@ -15,7 +15,7 @@ import Footer from "./Footer";
 export default class Layout extends React.Component<{}, {}>{
   render(){
     return(
-      <div>
+      <div id="layout">
         <NavBar/>
         <Header/>
         <Body/>
