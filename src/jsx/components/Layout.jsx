@@ -1,22 +1,37 @@
 import * as React from "react";
-
-//declare function require(name:string);
-//var NavBar = require<React.Component<{}, {}>>("./NavBar/NavBar.jsx");
-/*import NavBar = require("./NavBar/NavBar.jsx");
-var Header = require("./Header.jsx");
-var Body = require("./Body.jsx");
-var SetLinkModal = require("./Modal/SetLinkModal.jsx");//*/
-
 import NavBar from "./NavBar/NavBar.jsx";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
 
-export default class Layout extends React.Component<{}, {}>{
+export default class Layout extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      "height": "50px"
+    };
+  }
+
+  handleResize(e){
+    var h = $('#navMenu').height().toString() + "px";
+    this.setState({
+      "height": h
+    });
+  }
+
+  componentDidMount(){
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.handleResize.bind(this));
+  }
+
   render(){
     return(
       <div id="layout">
         <NavBar/>
+        <div style={this.state}></div>
         <Header/>
         <Body/>
       </div>

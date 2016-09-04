@@ -1,7 +1,3 @@
-body{
-  padding-top: 51px;
-}
-
 .clickable-row:hover{
   background: #eee;
 }
@@ -24,14 +20,24 @@ footer{
 }
 
 .add-link{
-  border: none;
-  border-radius: 0;
+  /*border: none;*/
+  border-radius: 8px;
   box-shadow: none;
   background: transparent;
 }
 
 .add-link:hover{
   background: transparent;
+}
+
+td > .input-group > .input-group-btn,
+th > .input-group > .input-group-btn{
+  visibility: hidden;
+}
+
+td:hover > .input-group > .input-group-btn,
+th:hover > .input-group > .input-group-btn {
+  visibility: visible;
 }
 
 .modal {

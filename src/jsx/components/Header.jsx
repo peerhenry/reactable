@@ -1,5 +1,6 @@
 import React from "react";
 import PageStore from "../../js/stores/PageStore.js"
+import ButtonGroup from "./ButtonGroup"
 
 export default class Header extends React.Component{
 
@@ -18,11 +19,18 @@ export default class Header extends React.Component{
 
   render(){
     const { hidden } = this.state;
-    var styleObj = hidden ? { display: "None"} : { };
+    var jumboStyle = hidden ? { display: "None"} : {  };
+    var h1Style = {
+      "color": "inherit",
+      "text-shadow": "2px 2px 2px #666",
+      "font-style": "italic",
+      "font-weight": "bold"
+    };
     return(
-      <div class="jumbotron" style={styleObj}>
+      <div class="jumbotron" style={jumboStyle}>
         <div class="container">
-          <h1>ReacTable</h1>
+          <h1 style={h1Style}>ReacTable</h1>
+          <center class="row"><ButtonGroup/></center>
         </div>
       </div>
     );

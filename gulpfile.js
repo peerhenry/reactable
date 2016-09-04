@@ -53,3 +53,7 @@ gulp.task('watch', function(){
 gulp.task('default', function(){
   runSequence('webpack', ['dev', 'watch']);
 });
+
+gulp.task('withbrowser', function(){
+  runSequence('webpack', ['dev', 'watch', 'browser']);
+});

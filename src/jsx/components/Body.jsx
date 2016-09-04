@@ -4,14 +4,20 @@ import TablePage from "./Table/TablePage.jsx"
 import SearchPage from "./Search/SearchPage.jsx"
 
 export default class Body extends React.Component{
-  render(){
-    return(
+
+  constructor(){
+    super();
+    this.routes = (
       <Router history = {hashHistory}>
         <Route path="/" component={TablePage}>
         </Route>
         <Route path="/Search" component={SearchPage}>
         </Route>
       </Router>
-    )
+    );
+  }
+
+  render(){
+    return this.routes
   }
 }
