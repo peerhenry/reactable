@@ -10,7 +10,9 @@ export default class Cell extends React.Component{
     this.state = {
       value: TableStore.getValue(row, col),
       rowN: row,
-      colN: col
+      colN: col,
+      link: null,
+      linked: false
     };
     // state should contain data that the component's event handler may change to trigger a UI update
 

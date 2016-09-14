@@ -2,6 +2,10 @@
   background: #eee;
 }
 
+body{
+  background-color: #eee;
+}
+
 footer{
   z-index: -1;
   opacity: .99;
@@ -70,4 +74,8 @@ th:hover > .input-group > .input-group-btn {
   -ms-transition: opacity 0.1s linear;
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
+}
+
+.margin-top{
+  margin-top: 20px;
 }

@@ -9,7 +9,7 @@ export default class TableHeader extends React.Component{
     super();
     this.state = {
       header: TableStore.getHeader(),
-      isVisble: true
+      isVisble: PageStore.tableHeaderIsVisible()
     };
   }
 

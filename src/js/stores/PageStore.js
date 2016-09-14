@@ -6,7 +6,7 @@ class PageStore extends EventEmitter{
 
   constructor(){
     super();
-    this.showHeader = true;
+    this.showHeader = false;
     this.showTitle = true;
     this.showTableHeader = true;
   }

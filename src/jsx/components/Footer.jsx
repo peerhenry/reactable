@@ -4,8 +4,8 @@ import SaveButton from "./SaveButton";
 export default class Footer extends React.Component{
   render(){
     var lightGreyBackground = {
-      "borderTop": "1px solid #666",
-      "background": "#eee"
+      "borderTop": "1px solid #ccc",
+      "background": "white"
     };
 
     return(

@@ -1,6 +1,7 @@
 import React from "react";
 import SearchEntry from "./SearchEntry.jsx";
 import SearchStore from "../../../js/stores/SearchStore.js"
+import {panelStyle} from "../../../js/stores/StyleStore.js";
 
 export default class TablePage extends React.Component{
 
@@ -25,21 +26,23 @@ export default class TablePage extends React.Component{
     )
 
     return(
-      <div class="container">
-        <h2>Search</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Created By</th>
-              <th>Last modified</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            {entries}
-          </tbody>
-        </table>
+      <div class="container margin-top">
+        <div style={panelStyle}>
+          <h2>Search</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Created By</th>
+                <th>Last modified</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              {entries}
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }

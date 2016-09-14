@@ -5,8 +5,11 @@ class TableRetriever{
     callback({
         uid: "1",
         name: "new table",
-        header: ["A","B","C"],
-        matrix: []
+        header: ["column 1","column 2","column 3","column 4"],
+        matrix: [
+          ["A", "B", "C", "D"],
+          ["A", "B", "C", "D"] 
+        ]
       });
     return;
 

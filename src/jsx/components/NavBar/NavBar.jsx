@@ -9,10 +9,18 @@ export default class NavBar extends React.Component{
   }
 
   render(){
+    const titleStyle = {
+      "font-weight": "bold",
+      "font-style": "italic",
+      "font-size": "24px"
+    };
     return(
-      <nav className="navbar navbar-inverse navbar-fixed-top" id="navMenu">
-        <div className="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="navMenu">
+        <div class="container-fluid">
           <ul class="nav navbar-nav">
+            <li><a href="#" style={titleStyle}>
+              ReacTable
+            </a></li>
             <Options/>
             <li><a href="">button2</a></li>
           </ul>

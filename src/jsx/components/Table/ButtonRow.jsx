@@ -1,8 +1,9 @@
 import React from "react";
 import * as TableSizeActions from "../../../js/actions/TableSizeActions.js";
 import TableStore from "../../../js/stores/TableStore.js";
-import ButtonGroup from "../ButtonGroup.jsx";
+import ButtonGroup from "./ButtonGroup.jsx";
 
+// Seems obsolete
 export default class ButtonRow extends React.Component{
 
   constructor(){

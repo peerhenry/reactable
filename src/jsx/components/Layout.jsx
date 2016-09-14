@@ -32,7 +32,6 @@ export default class Layout extends React.Component{
       <div id="layout">
         <NavBar/>
         <div style={this.state}></div>
-        <Header/>
         <Body/>
       </div>
     )
