@@ -1,10 +1,10 @@
 import React from "react";
 
-import {loadTable} from "../../../js/actions/TableContentActions.js";
-import ButtonGroup from "./ButtonGroup.jsx";
+import {loadTable} from "actions/TableContentActions.js";
+import TableEditButtons from "./TableEditButtons.jsx";
 import TablePanel from "./TablePanel.jsx";
 import DescriptionPanel from "./DescriptionPanel.jsx";
-import CommentsPanel from "./CommentsPanel.jsx";
+import CommentsPanel from "./Comments/CommentsPanel.jsx";
 
 export default class TablePage extends React.Component{
 
@@ -16,7 +16,7 @@ export default class TablePage extends React.Component{
     return(
       <div>
         <div class="container margin-top">
-          <center class="row"><ButtonGroup/></center>
+          <center class="row"><TableEditButtons/></center>
         </div>
         <div class="container margin-top">
           <div id="page-container">

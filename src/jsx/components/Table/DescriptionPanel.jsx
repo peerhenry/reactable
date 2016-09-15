@@ -1,5 +1,5 @@
 import React from "react";
-import {panelStyle} from "../../../js/stores/StyleStore.js";
+import {panelStyle} from "stores/StyleStore.js";
 import Stars from "../Search/Stars.jsx";
 
 export default class DescriptionPanel extends React.Component{

@@ -73,7 +73,14 @@ module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
   resolve: {
-    extensions: ["", ".js", ".jsx", ".ts", ".tsx"]
+    extensions: ["", ".js", ".jsx", ".ts", ".tsx"],
+    root: path.resolve(__dirname),
+    alias: {
+      stores: "src/js/stores",
+      actions: "src/js/actions",
+      api: "src/js/api",
+      models: "src/js/models"
+    }
   },
   entry: {
     "client.min.js": "./jsx/client.jsx"

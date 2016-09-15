@@ -1,6 +1,6 @@
 import React from "react";
 
-import {panelStyle} from "../../../js/stores/StyleStore.js";
+import {panelStyle} from "stores/StyleStore.js";
 import TableName from "./TableName.jsx";
 import Table from "./Table.jsx";
 

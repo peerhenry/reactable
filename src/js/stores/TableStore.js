@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
 import Immutable from 'immutable';
 
-import dispatcher from "../dispatcher.js"
+import dispatcher from "../dispatcher.js";
 import tableRetriever from "../api/tableretriever.js";
 
 class TableStore extends EventEmitter{
@@ -136,8 +136,6 @@ class TableStore extends EventEmitter{
   }
 }
 
-console.log('about to create a new tablestore...'); // DEBUG
 const tableStore = new TableStore;
 dispatcher.register(tableStore.handleAction.bind(tableStore));
-//window.dispatcher = dispatcher;
 export default tableStore;

@@ -1,8 +1,8 @@
 import React from "react";
-import * as TableSizeActions from "../../../js/actions/TableSizeActions.js";
-import TableStore from "../../../js/stores/TableStore.js";
+import * as TableSizeActions from "actions/TableSizeActions.js";
+import TableStore from "stores/TableStore.js";
 
-export default class ButtonRow extends React.Component{
+export default class TableEditButtons extends React.Component{
   constructor(){
     super();
   }

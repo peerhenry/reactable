@@ -1,10 +1,9 @@
 import React from "react";
-import TableStore from "../../js/stores/TableStore.js";
-import TableSaver from "../../js/api/TableSaver.js";
-import * as TableContentActions from "../../js/actions/TableContentActions.js";
+import TableStore from "stores/TableStore.js";
+import TableSaver from "api/TableSaver.js";
+import * as TableContentActions from "actions/TableContentActions.js";
 
 export default class SaveButton extends React.Component{
-
   constructor(){
     super();
   }

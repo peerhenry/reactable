@@ -1,9 +1,9 @@
 import React from "react";
-import { noInputBorder } from "../../../js/stores/StyleStore.js";
-import { hidden } from "../../../js/stores/StyleStore.js";
-import * as TableContentActions from "../../../js/actions/TableContentActions.js";
-import TableStore from "../../../js/stores/TableStore.js"
-import PageStore from "../../../js/stores/PageStore.js"
+import { noInputBorder } from "stores/StyleStore.js";
+import { hidden } from "stores/StyleStore.js";
+import * as TableContentActions from "actions/TableContentActions.js";
+import TableStore from "stores/TableStore.js"
+import PageStore from "stores/PageStore.js"
 
 export default class TableName extends React.Component{
 

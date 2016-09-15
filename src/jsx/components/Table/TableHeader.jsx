@@ -1,8 +1,8 @@
 import React from "react";
-import TableStore from "../../../js/stores/TableStore.js";
-import PageStore from "../../../js/stores/PageStore.js";
+import TableStore from "stores/TableStore.js";
+import PageStore from "stores/PageStore.js";
 import Cell from "./Cell.jsx";
-import { noInputBorder, hidden } from "../../../js/stores/StyleStore.js";
+import { noInputBorder, hidden } from "stores/StyleStore.js";
 
 export default class TableHeader extends React.Component{
   constructor(){
