@@ -4,6 +4,7 @@
 
 body{
   background-color: #eee;
+  //background-color: blue;
 }
 
 footer{
@@ -69,10 +70,6 @@ th:hover > .input-group > .input-group-btn {
 
 .fade {
   opacity: 0.2;
-  -webkit-transition: opacity 0.1s linear;
-  -moz-transition: opacity 0.1s linear;
-  -ms-transition: opacity 0.1s linear;
-  -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
 

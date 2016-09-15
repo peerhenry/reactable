@@ -1,6 +1,6 @@
 import React from "react";
-import Stars from "./Stars.jsx";
-import { open } from "../../../js/actions/SearchActions.js";
+import Stars from "./Stars";
+import { open } from "actions/SearchActions";
 
 export default class SearchEntry extends React.Component{
 

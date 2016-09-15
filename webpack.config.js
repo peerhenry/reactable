@@ -1,7 +1,8 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 function getBabelLoader(){
   return {
@@ -27,11 +28,11 @@ function getTypescriptLoader(){
   };
 }
 
-function getCssLoader(){
+function getSassLoader(){
   return {
-    test: /\.css$/,
-    //loader: "style!css"
-    loader: "css"
+    test: /\.scss$/,
+    //loaders: ["style", "css", "sass"]
+    loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass")
   };
 }
 
@@ -48,7 +49,7 @@ function getPugLoader(){
 function getLoaders(){
   return [
     getBabelLoader(),
-    //getCssLoader(),
+    getSassLoader(),
     getPugLoader(),
     getTypescriptLoader()
   ]
@@ -60,9 +61,13 @@ function getWebpackPlugin(){
   })
 }
 
+function getExtractTextPlugin(){
+  return new ExtractTextPlugin("style.css");
+}
+
 function getPlugins(){
-  return debug ? [ getWebpackPlugin() ] : [
-      getWebpackPlugin(),
+  return debug ? [ getWebpackPlugin(), getExtractTextPlugin() ] : [
+      getWebpackPlugin(), getExtractTextPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false })
@@ -76,14 +81,14 @@ module.exports = {
     extensions: ["", ".js", ".jsx", ".ts", ".tsx"],
     root: path.resolve(__dirname),
     alias: {
-      stores: "src/js/stores",
-      actions: "src/js/actions",
-      api: "src/js/api",
-      models: "src/js/models"
+      stores: "src/stores",
+      actions: "src/actions",
+      api: "src/api",
+      models: "src/models"
     }
   },
   entry: {
-    "client.min.js": "./jsx/client.jsx"
+    "client.min.js": "./client.jsx"
   },
   module: {
     loaders: getLoaders()

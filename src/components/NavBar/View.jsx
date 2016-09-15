@@ -1,6 +1,6 @@
 import React from "react";
-import * as DisplayActions from "../../../js/actions/TablePageDisplayActions.js";
-import TablePageDisplayStore from "../../../js/stores/TablePageDisplayStore.js";
+import * as DisplayActions from "actions/TablePageDisplayActions";
+import TablePageDisplayStore from "stores/TablePageDisplayStore";
 
 export default class View extends React.Component{
 

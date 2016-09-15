@@ -1,7 +1,7 @@
 import React from "react";
-import SearchEntry from "./SearchEntry.jsx";
-import SearchStore from "../../../js/stores/SearchStore.js"
-import {panelStyle} from "../../../js/stores/StyleStore.js";
+import SearchEntry from "./SearchEntry";
+import SearchStore from "stores/SearchStore"
+import {panelStyle} from "stores/StyleStore";
 
 export default class TablePage extends React.Component{
 
