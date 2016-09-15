@@ -1,5 +1,7 @@
 export default class CellModel{
-  constructor(rowNr, colNr, text, link, linkIsActive, isEmbedded){
-
+  constructor(rowNumber, columnNumber, text){
+    this.rowNumber = rowNumber;
+    this.columnNumber =columnNumber;
+    this.text = text;
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import {panelStyle} from "stores/StyleStore.js";
 import Stars from "../Search/Stars.jsx";
 
-export default class DescriptionPanel extends React.Component{
+export default class DetailsPanel extends React.Component{
   render(){
     const starsStyle = {
       float: "right"

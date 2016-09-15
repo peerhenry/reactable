@@ -1,6 +1,6 @@
 import React from "react";
 import TableStore from "stores/TableStore.js";
-import PageStore from "stores/PageStore.js";
+import TablePageDisplayStore from "stores/TablePageDisplayStore.js";
 import Cell from "./Cell.jsx";
 import { noInputBorder, hidden } from "stores/StyleStore.js";
 
@@ -9,7 +9,7 @@ export default class TableHeader extends React.Component{
     super();
     this.state = {
       header: TableStore.getHeader(),
-      isVisble: PageStore.tableHeaderIsVisible()
+      isVisble: TablePageDisplayStore.headerIsVisible()
     };
   }
 
@@ -17,8 +17,8 @@ export default class TableHeader extends React.Component{
     TableStore.on("change", () => this.setState({
       header: TableStore.getHeader()
     }));
-    PageStore.on("change", () => this.setState({
-      isVisble: PageStore.tableHeaderIsVisible()
+    TablePageDisplayStore.on("change", () => this.setState({
+      isVisble: TablePageDisplayStore.headerIsVisible()
     }));
   }
 

@@ -12,8 +12,14 @@ export function toggleTitle(){
   });
 }
 
-export function toggleTableHeader(){
+export function toggleDetails(){
   dispatcher.dispatch({
-    type: "TOGGLE_TABLE_HEADER"
+    type: "TOGGLE_DETAILS"
+  })
+}
+
+export function toggleComments(){
+  dispatcher.dispatch({
+    type: "TOGGLE_COMMENTS"
   })
 }

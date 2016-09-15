@@ -1,6 +1,7 @@
 import React from "react";
-import Options from "./Options.jsx";
-import SearchForm from "./SearchForm.jsx";
+import View from "./View";
+import NewDropdownMenu from "./New";
+import SearchForm from "./SearchForm";
 
 export default class NavBar extends React.Component{
 
@@ -21,7 +22,8 @@ export default class NavBar extends React.Component{
             <li><a href="#" style={titleStyle}>
               ReacTable
             </a></li>
-            <Options/>
+            <NewDropdownMenu/>
+            <View/>
             <li><a href="">button2</a></li>
           </ul>
           <SearchForm/>

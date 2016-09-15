@@ -3,7 +3,7 @@ import { noInputBorder } from "stores/StyleStore.js";
 import { hidden } from "stores/StyleStore.js";
 import * as TableContentActions from "actions/TableContentActions.js";
 import TableStore from "stores/TableStore.js"
-import PageStore from "stores/PageStore.js"
+import TablePageDisplayStore from "stores/TablePageDisplayStore.js"
 
 export default class TableName extends React.Component{
 
@@ -11,7 +11,7 @@ export default class TableName extends React.Component{
     super();
     this.state= {
       text: TableStore.getName(),
-      isVisble: PageStore.titleIsVisible()
+      isVisble: TablePageDisplayStore.titleIsVisible()
     }
   }
 
@@ -21,9 +21,9 @@ export default class TableName extends React.Component{
         text: TableStore.getName()
       });
     });
-    PageStore.on("change", () => {
+    TablePageDisplayStore.on("change", () => {
       this.setState({
-        isVisble: PageStore.titleIsVisible()
+        isVisble: TablePageDisplayStore.titleIsVisible()
       });
     });
   }

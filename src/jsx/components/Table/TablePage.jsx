@@ -1,12 +1,30 @@
 import React from "react";
-
+// logic
 import {loadTable} from "actions/TableContentActions.js";
-import TableEditButtons from "./TableEditButtons.jsx";
-import TablePanel from "./TablePanel.jsx";
-import DescriptionPanel from "./DescriptionPanel.jsx";
-import CommentsPanel from "./Comments/CommentsPanel.jsx";
+import TablePageDisplayStore from "stores/TablePageDisplayStore.js";
+// components
+import TableEditButtons from "./TableEditButtons";
+import TablePanel from "./TablePanel";
+import DetailsPanel from "./DetailsPanel";
+import CommentsPanel from "./Comments/CommentsPanel";
 
 export default class TablePage extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      showDetails: TablePageDisplayStore.detailsAreVisible(),
+      showComments: TablePageDisplayStore.commentsAreVisible()
+    };
+  }
+
+  componentWillMount(){
+    TablePageDisplayStore.on("change", () => {
+      this.setState({
+        showDetails: TablePageDisplayStore.detailsAreVisible(),
+        showComments: TablePageDisplayStore.commentsAreVisible()
+      });
+    });
+  }
 
   componentDidMount(){
     loadTable('0');
@@ -21,8 +39,8 @@ export default class TablePage extends React.Component{
         <div class="container margin-top">
           <div id="page-container">
             <TablePanel/>
-            <DescriptionPanel/>
-            <CommentsPanel/>
+            {(this.state.showDetails) ? (<DetailsPanel/>) : null}
+            {(this.state.showComments) ? (<CommentsPanel/>) : null}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import PageStore from "../../js/stores/PageStore.js";
 
 export default class Header extends React.Component{
@@ -39,9 +39,8 @@ export default class Header extends React.Component{
       <div class="jumbotron">
         <div class="container">
           <h1 style={h1Style}>ReacTable</h1>
-          
         </div>
       </div>
     );
   }
-}
+}*/
