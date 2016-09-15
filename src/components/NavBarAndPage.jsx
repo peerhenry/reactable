@@ -1,10 +1,12 @@
 import * as React from "react";
 
+import TablePage from "./Table/TablePage";
 import NavBar from "./NavBar/NavBar";
-import Body from "./Body";
-import Footer from "./Footer";
 
-export default class Layout extends React.Component{
+import Footer from "./Footer";
+import SetLinkModal from "components/Modal/SetLinkModal";
+
+export default class NavBarAndPage extends React.Component{
   constructor(){
     super();
     this.state = {
@@ -29,10 +31,10 @@ export default class Layout extends React.Component{
 
   render(){
     return(
-      <div id="layout">
-        <NavBar/>
+      <div>
+        { this.props.navBar || <NavBar showViewMenu={true}/> }
         <div style={this.state}></div>
-        <Body/>
+        { this.props.pageComponent || <TablePage/> }
       </div>
     )
   }

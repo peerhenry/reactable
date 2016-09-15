@@ -7,6 +7,7 @@ import TableEditButtons from "./TableEditButtons";
 import TablePanel from "./TablePanel";
 import DetailsPanel from "./DetailsPanel";
 import CommentsPanel from "./Comments/CommentsPanel";
+import SetLinkModal from "../Modal/SetLinkModal";
 
 export default class TablePage extends React.Component{
   constructor(){
@@ -43,6 +44,7 @@ export default class TablePage extends React.Component{
             {(this.state.showComments) ? (<CommentsPanel/>) : null}
           </div>
         </div>
+        <SetLinkModal/>
       </div>
     )
   }

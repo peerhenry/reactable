@@ -1,12 +1,12 @@
 import React from "react";
+
 import View from "./View";
 import NewDropdownMenu from "./New";
 import SearchForm from "./SearchForm";
 
 export default class NavBar extends React.Component{
-
   constructor(){
-    super();
+    super(); 
   }
 
   render(){
@@ -15,6 +15,7 @@ export default class NavBar extends React.Component{
       "font-style": "italic",
       "font-size": "24px"
     };
+
     return(
       <nav class="navbar navbar-inverse navbar-fixed-top" id="navMenu">
         <div class="container-fluid">
@@ -23,7 +24,7 @@ export default class NavBar extends React.Component{
               ReacTable
             </a></li>
             <NewDropdownMenu/>
-            <View/>
+            { (this.props.showViewMenu) ? (<View/>) : null }
             <li><a href="">button2</a></li>
           </ul>
           <SearchForm/>

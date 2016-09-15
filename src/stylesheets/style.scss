@@ -4,12 +4,6 @@
 
 body{
   background-color: #eee;
-  //background-color: blue;
-}
-
-footer{
-  z-index: -1;
-  opacity: .99;
 }
 
 .table{
@@ -25,7 +19,6 @@ footer{
 }
 
 .add-link{
-  /*border: none;*/
   border-radius: 8px;
   box-shadow: none;
   background: transparent;
@@ -45,29 +38,6 @@ th:hover > .input-group > .input-group-btn {
   visibility: visible;
 }
 
-.modal {
-  text-align: center;
-}
-
-@media screen and (min-width: 768px) { 
-  .modal:before {
-    display: inline-block;
-    vertical-align: middle;
-    content: " ";
-    height: 100%;
-  }
-}
-
-.modal-dialog {
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
-}
-
-.modal-backdrop.in {
-    opacity: 0.2;
-}
-
 .fade {
   opacity: 0.2;
   transition: opacity 0.1s linear;
@@ -75,4 +45,9 @@ th:hover > .input-group > .input-group-btn {
 
 .margin-top{
   margin-top: 20px;
+}
+
+.full-height{
+  min-height: 100%;
+  height: 100%;
 }

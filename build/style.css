@@ -2,14 +2,14 @@
   background: #eee; }
 
 body {
-  background-color: blue; }
+  background-color: #eee; }
 
 footer {
   z-index: -1;
   opacity: .99; }
 
 .table {
-  background: red; }
+  background: white; }
 
 .table td:hover {
   background: #eee; }

@@ -9,6 +9,23 @@ export function editCell(row, col, text){
   });
 }
 
+export function attachLink(row, col, link){
+  dispatcher.dispatch({
+    type: "ATTACH_LINK",
+    row: row,
+    col: col,
+    link: link
+  });
+}
+
+export function detachLink(row, col){
+  dispatcher.dispatch({
+    type: "DETACH_LINK",
+    row: row,
+    col: col
+  });
+}
+
 export function editTableName(text){
   dispatcher.dispatch({
     type: "EDIT_NAME",

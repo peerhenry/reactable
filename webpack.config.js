@@ -78,13 +78,15 @@ module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
   resolve: {
-    extensions: ["", ".js", ".jsx", ".ts", ".tsx"],
+    extensions: ["", ".js", ".jsx", ".ts", ".tsx", ".scss"],
     root: path.resolve(__dirname),
     alias: {
       stores: "src/stores",
       actions: "src/actions",
       api: "src/api",
-      models: "src/models"
+      models: "src/models",
+      components: "src/components",
+      styles: "src/stylesheets"
     }
   },
   entry: {
