@@ -81,9 +81,10 @@ module.exports = {
     extensions: ["", ".js", ".jsx", ".ts", ".tsx", ".scss"],
     root: path.resolve(__dirname),
     alias: {
-      stores: "src/stores",
-      actions: "src/actions",
-      api: "src/api",
+      stores: "src/flux/stores",
+      actions: "src/flux/actions",
+      api: "src/flux/api",
+      dispatchers: "src/flux/dispatchers",
       models: "src/models",
       components: "src/components",
       styles: "src/stylesheets"

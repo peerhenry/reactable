@@ -1,25 +1,25 @@
-import dispatcher from "../dispatcher"
+import tablePageDisplayDispatcher from "dispatchers/TablePageDisplayDispatcher"
 
 export function toggleHeader(){
-  dispatcher.dispatch({
+  tablePageDisplayDispatcher.dispatch({
     type: "TOGGLE_HEADER"
   });
 }
 
 export function toggleTitle(){
-  dispatcher.dispatch({
+  tablePageDisplayDispatcher.dispatch({
     type: "TOGGLE_TITLE"
   });
 }
 
 export function toggleDetails(){
-  dispatcher.dispatch({
+  tablePageDisplayDispatcher.dispatch({
     type: "TOGGLE_DETAILS"
   })
 }
 
 export function toggleComments(){
-  dispatcher.dispatch({
+  tablePageDisplayDispatcher.dispatch({
     type: "TOGGLE_COMMENTS"
   })
 }

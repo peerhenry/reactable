@@ -1,13 +1,13 @@
-import dispatcher from "../dispatcher"
+import commentsDispatcher from "dispatchers/CommentsDispatcher"
 
 export function activateCommentFrame(){
-  dispatcher.dispatch({
+  commentsDispatcher.dispatch({
     type: "ACTIVATE_COMMENT_FRAME"
   });
 }
 
 export function deactivateCommentFrame(){
-  dispatcher.dispatch({
+  commentsDispatcher.dispatch({
     type: "DEACTIVATE_COMMENT_FRAME"
   });
 }

@@ -1,7 +1,7 @@
-import dispatcher from "../dispatcher"
+import tableContentDispatcher from "dispatchers/TableContentDispatcher"
 
 export function editCell(row, col, text){
-  dispatcher.dispatch({
+  tableContentDispatcher.dispatch({
     type: "EDIT_CELL",
     row: row,
     col: col,
@@ -10,7 +10,7 @@ export function editCell(row, col, text){
 }
 
 export function attachLink(row, col, link){
-  dispatcher.dispatch({
+  tableContentDispatcher.dispatch({
     type: "ATTACH_LINK",
     row: row,
     col: col,
@@ -19,7 +19,7 @@ export function attachLink(row, col, link){
 }
 
 export function detachLink(row, col){
-  dispatcher.dispatch({
+  tableContentDispatcher.dispatch({
     type: "DETACH_LINK",
     row: row,
     col: col
@@ -27,22 +27,21 @@ export function detachLink(row, col){
 }
 
 export function editTableName(text){
-  dispatcher.dispatch({
+  tableContentDispatcher.dispatch({
     type: "EDIT_NAME",
     val: text
   });
 }
 
 export function setTable(tableModel){
-  dispatcher.dispatch({
+  tableContentDispatcher.dispatch({
     type: "SET_TABLE",
     val: tableModel
   })
 }
 
 export function loadTable(uid){
-  console.log('loadTable called in TableContentActions with uid: ' + uid);
-  dispatcher.dispatch({
+  tableContentDispatcher.dispatch({
     type: "LOAD_TABLE",
     val: uid
   });

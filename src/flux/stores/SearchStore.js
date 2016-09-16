@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import dispatcher from "../dispatcher.js"
+import searchDispatcher from "dispatchers/SearchDispatcher.js"
 
 class SearchStore extends EventEmitter{
 
@@ -49,5 +49,5 @@ class SearchStore extends EventEmitter{
 }
 
 const searchStore = new SearchStore;
-dispatcher.register(searchStore.handleAction.bind(searchStore));
+searchDispatcher.register(searchStore.handleAction.bind(searchStore));
 export default searchStore;

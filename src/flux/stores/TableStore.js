@@ -1,8 +1,9 @@
 import { EventEmitter } from "events";
 import Immutable from 'immutable';
 
-import dispatcher from "../dispatcher.js";
-import tableRetriever from "../api/tableretriever.js";
+import tableContentDispatcher from "dispatchers/TableContentDispatcher";
+import tableSizeDispatcher from "dispatchers/TableSizeDispatcher";
+import tableRetriever from "../api/tableretriever.js"; // this should not be here,
 
 class TableStore extends EventEmitter{
 
@@ -84,6 +85,7 @@ class TableStore extends EventEmitter{
 
   // data manipulation
 
+  // this should not be here, should be called from an action
   loadTableModel(uid){
     tableRetriever.getTableModel(uid, model => {
       this.setTableModel(model);
@@ -137,5 +139,6 @@ class TableStore extends EventEmitter{
 }
 
 const tableStore = new TableStore;
-dispatcher.register(tableStore.handleAction.bind(tableStore));
+tableContentDispatcher.register(tableStore.handleAction.bind(tableStore));
+tableSizeDispatcher.register(tableStore.handleAction.bind(tableStore));
 export default tableStore;

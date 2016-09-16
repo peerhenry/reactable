@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
 
-import dispatcher from "../dispatcher.js"
+import commentsDispatcher from "dispatchers/CommentsDispatcher"
 
 class CommentStore extends EventEmitter{
   constructor(){
@@ -31,5 +31,5 @@ class CommentStore extends EventEmitter{
 }
 
 const commentStore = new CommentStore;
-dispatcher.register(commentStore.handleAction.bind(commentStore));
+commentsDispatcher.register(commentStore.handleAction.bind(commentStore));
 export default commentStore;

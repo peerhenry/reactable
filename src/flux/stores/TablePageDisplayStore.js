@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
 
-import dispatcher from "../dispatcher.js"
+import tablePageDisplayDispatcher from "dispatchers/TablePageDisplayDispatcher.js"
 
 class TablePageDisplayStore extends EventEmitter{
 
@@ -72,5 +72,5 @@ class TablePageDisplayStore extends EventEmitter{
 }
 
 const pageStore = new TablePageDisplayStore;
-dispatcher.register(pageStore.handleAction.bind(pageStore));
+tablePageDisplayDispatcher.register(pageStore.handleAction.bind(pageStore));
 export default pageStore;

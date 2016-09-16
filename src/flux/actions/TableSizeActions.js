@@ -1,25 +1,25 @@
-import dispatcher from "../dispatcher"
+import tableSizeDispatcher from "dispatchers/TableSizeDispatcher";
 
 export function addRow(){
-  dispatcher.dispatch({
+  tableSizeDispatcher.dispatch({
     type: "ADD_ROW"
   });
 }
 
 export function addColumn(){
-  dispatcher.dispatch({
+  tableSizeDispatcher.dispatch({
     type: "ADD_COLUMN"
   });
 }
 
 export function removeRow(){
-  dispatcher.dispatch({
+  tableSizeDispatcher.dispatch({
     type: "REMOVE_ROW"
   });
 }
 
 export function removeColumn(){
-  dispatcher.dispatch({
+  tableSizeDispatcher.dispatch({
     type: "REMOVE_COLUMN"
   });
 }

@@ -1,41 +1,14 @@
-.clickable-row:hover {
-  background: #eee; }
-
-body {
-  background-color: #eee; }
-
-footer {
-  z-index: -1;
-  opacity: .99; }
-
-.table {
-  background: white; }
-
-.table td:hover {
-  background: #eee; }
-
-.table input {
-  background: transparent; }
-
-.add-link {
-  /*border: none;*/
-  border-radius: 8px;
-  box-shadow: none;
-  background: transparent; }
-
-.add-link:hover {
-  background: transparent; }
-
-td > .input-group > .input-group-btn,
-th > .input-group > .input-group-btn {
-  visibility: hidden; }
-
-td:hover > .input-group > .input-group-btn,
-th:hover > .input-group > .input-group-btn {
-  visibility: visible; }
-
 .modal {
   text-align: center; }
+
+.modal-header {
+  background-color: #222;
+  color: white;
+  font-weight: bold;
+  font-size: 16px; }
+
+.modal-content {
+  border-radius: 2px; }
 
 @media screen and (min-width: 768px) {
   .modal:before {
@@ -51,6 +24,36 @@ th:hover > .input-group > .input-group-btn {
 
 .modal-backdrop.in {
   opacity: 0.2; }
+.clickable-row:hover {
+  background: #eee; }
+
+body {
+  background-color: #eee; }
+
+.table {
+  background: white; }
+
+.table td:hover {
+  background: #eee; }
+
+.table input {
+  background: transparent; }
+
+.add-link {
+  border-radius: 8px;
+  box-shadow: none;
+  background: transparent; }
+
+.add-link:hover {
+  background: transparent; }
+
+td > .input-group > .input-group-btn,
+th > .input-group > .input-group-btn {
+  visibility: hidden; }
+
+td:hover > .input-group > .input-group-btn,
+th:hover > .input-group > .input-group-btn {
+  visibility: visible; }
 
 .fade {
   opacity: 0.2;
@@ -59,6 +62,10 @@ th:hover > .input-group > .input-group-btn {
 
 .margin-top {
   margin-top: 20px; }
+
+.full-height {
+  min-height: 100%;
+  height: 100%; }
 * {
   margin: 0; }
 
