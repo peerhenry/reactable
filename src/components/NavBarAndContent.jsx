@@ -1,12 +1,12 @@
 import * as React from "react";
 
-import TablePage from "./Table/TablePage";
+import TablePageContent from "./Table/TablePageContent";
 import NavBar from "./NavBar/NavBar";
 
 import Footer from "./Footer";
 import SetLinkModal from "components/Modal/SetLinkModal";
 
-export default class NavBarAndPage extends React.Component{
+export default class NavBarAndContent extends React.Component{
   constructor(){
     super();
     this.state = {
@@ -32,9 +32,9 @@ export default class NavBarAndPage extends React.Component{
   render(){
     return(
       <div>
-        { this.props.navBar || <NavBar showViewMenu={true}/> }
+        <NavBar showViewMenu={!this.props.isSearhPage}/>
         <div style={this.state}></div>
-        { this.props.pageComponent || <TablePage/> }
+        { (this.props.isSearhPage)? <SearchPageContent/> : <TablePageContent/> }
       </div>
     )
   }

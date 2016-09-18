@@ -1,9 +1,7 @@
 
 const initialState = {
   showTitle: true,
-  showHeader: true,
-  columns: 0,
-  rows: 0
+  showHeader: true
 }
 
 export default function reducer(state=initialState, action){
@@ -13,15 +11,10 @@ export default function reducer(state=initialState, action){
         state, 
         {showTitle: !state.showTitle}) 
     }
-    case "TOGGLE_TITLE":{
+    case "TOGGLE_HEADER":{
       return Object.assign({}, 
         state, 
-        {showTitle: !state.showHeader}) 
-    }
-    case "SET_SIZE":{
-      return Object.assign({}, 
-        state, 
-        {columns: action.payload.columns, rows: action.payload.rows}) 
+        {showHeader: !state.showHeader}) 
     }
     default:
       return state

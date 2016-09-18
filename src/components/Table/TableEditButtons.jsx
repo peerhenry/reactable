@@ -3,10 +3,6 @@ import * as TableSizeActions from "actions/TableSizeActions.js";
 import TableStore from "stores/TableStore.js";
 
 export default class TableEditButtons extends React.Component{
-  constructor(){
-    super();
-  }
-
   addRow(){
     TableSizeActions.addRow();
   }

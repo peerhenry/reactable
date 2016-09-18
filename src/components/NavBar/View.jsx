@@ -1,54 +1,41 @@
-import React from "react";
-import * as DisplayActions from "actions/TablePageDisplayActions";
-import TablePageDisplayStore from "stores/TablePageDisplayStore";
+import React from "react"
+import {connect} from "react-redux"
 
+@connect((store) => {return{
+  showTitle: store.tableDisplay.showTitle,
+  showHeader: store.tableDisplay.showHeader,
+  showDetails: store.tablePageDisplay.showDetails,
+  showComments: store.tablePageDisplay.showComments,
+}})
 export default class View extends React.Component{
-
-  constructor(){
-    super();
-    this.state = {
-      showTitle: TablePageDisplayStore.titleIsVisible(),
-      showHeader: TablePageDisplayStore.headerIsVisible(),
-      showDetails: TablePageDisplayStore.detailsAreVisible(),
-      showComments: TablePageDisplayStore.commentsAreVisible()
-    }
-  }
-
-  componentWillMount(){
-    TablePageDisplayStore.on("change", () => {
-      this.setState({
-        showTitle: TablePageDisplayStore.titleIsVisible(),
-        showHeader: TablePageDisplayStore.headerIsVisible(),
-        showDetails: TablePageDisplayStore.detailsAreVisible(),
-        showComments: TablePageDisplayStore.commentsAreVisible()
-      });
-    });
+  dispatch(typeName){
+    this.props.dispatch({type: typeName});
   }
 
   toggleTitle(){
-    DisplayActions.toggleTitle();
+    this.dispatch("TOGGLE_TITLE")
   }
 
   toggleHeader(){
-    DisplayActions.toggleHeader();
+    this.dispatch("TOGGLE_HEADER")
   }
 
   toggleDetails(){
-    DisplayActions.toggleDetails();
+    this.dispatch("TOGGLE_DETAILS")
   }
 
   toggleComments(){
-    DisplayActions.toggleComments();
+    this.dispatch("TOGGLE_COMMENTS")
   }
 
   render(){
   const checkedClass = "fa fa-check-square";
   const uncheckedClass = "fa fa-square";
 
-  var showHeaderClass = this.state.showHeader ? checkedClass: uncheckedClass;
-  var showTitleClass = this.state.showTitle ? checkedClass: uncheckedClass;
-  var showDetailsClass = this.state.showDetails ? checkedClass: uncheckedClass;
-  var showCommentsClass = this.state.showComments ? checkedClass: uncheckedClass;
+  var showHeaderClass = this.props.showHeader ? checkedClass: uncheckedClass;
+  var showTitleClass = this.props.showTitle ? checkedClass: uncheckedClass;
+  var showDetailsClass = this.props.showDetails ? checkedClass: uncheckedClass;
+  var showCommentsClass = this.props.showComments ? checkedClass: uncheckedClass;
   
   return(
     <li class="dropdown">

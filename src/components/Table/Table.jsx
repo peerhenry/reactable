@@ -7,7 +7,7 @@ export default class Table extends React.Component{
   render(){
     return(
       <table class="table">
-        <TableHeader/>
+        {(this.props.showHeader)? <TableHeader/> : null}
         <TableBody/>
       </table>
     )
