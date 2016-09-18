@@ -4,9 +4,9 @@ import {noInputBorder} from "stores/StyleStore.js";
 import * as TableContentActions from "actions/TableContentActions.js";
 
 export default class Cell extends React.Component{
-
   constructor(row, col){
     super();
+    //console.log("cell constructor called", row, col);
     this.state = {
       value: TableStore.getValue(row, col),
       rowN: row,
@@ -28,11 +28,20 @@ export default class Cell extends React.Component{
   }
 
   handleChange(event){
-    TableContentActions.editCell(this.state.rowN, this.state.colN, event.target.value);
+    console.log("handling change", event.target.value);
+    //TableContentActions.editCell(this.state.rowN, this.state.colN, event.target.value);
+    /*this.setState({
+      value: event.target.value
+    });//*/
+  }
+
+  handleBlur(event){
+    console.log("cell", this.state.rowN, this.state.colN, "handleBlur called...");
+    console.log("event value is:", event.target.value);
   }
 
   render(){
-    const { value } = this.state;
+    //const { value } = this.state;
     return(
       <div class="input-group">
         <input
@@ -41,7 +50,8 @@ export default class Cell extends React.Component{
           onFocus={this.selectText.bind(this)}
           type="text"
           class="form-control"
-          value={value}/>
+          defaultValue={this.state.value}
+          onBlur={this.handleBlur.bind(this)}/>
         <span class="input-group-btn">
           <button class="btn btn-default add-link" data-toggle="modal" data-target="#setLinkModal">
             <i class="fa fa-link" aria-hidden="true"></i>

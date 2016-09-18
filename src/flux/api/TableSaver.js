@@ -1,6 +1,6 @@
 class TableSaver{
 
-  saveTable(tableModel, callback){
+  saveTable(tableModel){
     // ajax post table.
     // uncomment to enable:
     /*$.ajax({

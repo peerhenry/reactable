@@ -5,6 +5,8 @@ import NavBarAndPage from "./NavBarAndPage";
 import SearchPageNavBar from "components/NavBar/SearchPageNavBar";
 import SearchPage from "components/Search/SearchPage";
 
+import Dummy from "./Dummy";
+
 export default class AppRouter extends React.Component{
   render(){
     return(
@@ -16,6 +18,7 @@ export default class AppRouter extends React.Component{
           }}>
           </Route>
         </Route>
+        <Route path="/:uid" component={Dummy}></Route>
       </Router>
     );
   }

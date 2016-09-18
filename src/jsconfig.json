@@ -2,14 +2,9 @@
     "compilerOptions":{
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "outDir": "./build/",
-        "target": "es6",
-        "jsx": "react"
+        "target": "ES6",
+        "module": "commonjs"
     },
-    "files":[
-        "./typings/index.d.ts",
-        "./src/jsx//components/Layout.tsx"
-    ],
     "exclude":[
         "node_modules",
         "build",
